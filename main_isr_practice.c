@@ -36,10 +36,9 @@ int main() {
   gpio_init(BTN_PIN_R);
   gpio_set_dir(BTN_PIN_R, GPIO_IN);
   gpio_pull_up(BTN_PIN_R);
-  gpio_set_irq_enabled_with_callback(BTN_PIN_R, GPIO_IRQ_EDGE_FALL, true,
-                                     &btn_callback);
+  gpio_set_irq_enabled_with_callback(BTN_PIN_R, GPIO_IRQ_EDGE_FALL, true, &btn_callback);
 
-  volatile int capture_flag = 0;
+  int capture_flag = 0;
   int a;
   while (1) {
     if (btn_flag) {
